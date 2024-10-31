@@ -400,7 +400,7 @@ void command( {
 	)
 	.option(
 		'in-place',
-		'Perform a search and replace operation on a local SQL file, save the results to the file, then import the updated file.'
+		'Perform a search and replace operation on the local input file, and save the results to the file prior to import.'
 	)
 	.option(
 		'output',
