@@ -36,7 +36,7 @@ command( {
 } )
 	.option(
 		'search-replace',
-		'Pass a string value to search for and a string value to replace it with. Separate the values by a comma only; no spaces (e.g. --search-replace=“from,to”).'
+		'Pass a string value to search for and a string value to replace it with. Separate the values by a comma only; no spaces (e.g. --search-replace="from,to").'
 	)
 	.option(
 		'in-place',
