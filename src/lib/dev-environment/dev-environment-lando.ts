@@ -599,7 +599,7 @@ export async function checkEnvHealth(
 				status: false,
 			} );
 
-			debug( 'Service %s is not running, removing %s from the sacn queue', service, url );
+			debug( 'Service %s is not running, removing %s from the scan queue', service, url );
 			urlsToScan.splice( urlsToScan.indexOf( url ), 1 );
 		}
 	} );
