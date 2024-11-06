@@ -37,10 +37,13 @@ export default function API( {
 } = {} ): ApolloClient< NormalizedCacheObject > {
 	const errorLink = onError( ( { networkError, graphQLErrors } ) => {
 		if ( networkError && 'statusCode' in networkError && networkError.statusCode === 401 ) {
-			console.error(
-				chalk.red( 'Unauthorized:' ),
-				'You are unauthorized to perform this request, please logout with `vip logout` then try again.'
-			);
+			let message =
+				'You are unauthorized to perform this request, please logout with `vip logout` then try again.';
+			if ( 'result' in networkError && networkError.result?.code === 'token-disabled-inactivity' ) {
+				message =
+					'The configured VIP-CLI token has been disabled due to inactivity, please logout with `vip logout` then try again.';
+			}
+			console.error( chalk.red( 'Unauthorized:' ), message );
 			process.exit( 1 );
 		}
 
