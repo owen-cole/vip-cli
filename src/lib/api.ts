@@ -38,7 +38,7 @@ export default function API( {
 	const errorLink = onError( ( { networkError, graphQLErrors } ) => {
 		if ( networkError && 'statusCode' in networkError && networkError.statusCode === 401 ) {
 			let message =
-				'You are unauthorized to perform this request, please logout with `vip logout` then try again.';
+				'You are not authorized to perform this request; please logout with `vip logout`, then try again.';
 			if ( 'result' in networkError && networkError.result?.code === 'token-disabled-inactivity' ) {
 				message =
 					'The configured VIP-CLI token has been disabled due to inactivity, please logout with `vip logout` then try again.';
