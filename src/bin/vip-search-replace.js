@@ -40,11 +40,11 @@ command( {
 	)
 	.option(
 		'in-place',
-		'Save the results of a search and replace operation to the local input file.'
+		'Overwrite the local input file with the results of the search and replace operation.'
 	)
 	.option(
 		'output',
-		'Save the results of the search and replace operation to a clone of the local input file. Ignored if the command includes --in-place. Accepts a local file path.'
+		'Clone the local input file and overwrite the clone with the results of the search and replace operation. Accepts a local file path. Overridden by --in-place if both options are run in the same command.'
 	)
 	.examples( examples )
 	.argv( process.argv, async ( arg, opt ) => {
