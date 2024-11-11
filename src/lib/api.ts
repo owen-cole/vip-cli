@@ -41,7 +41,7 @@ export default function API( {
 				'You are not authorized to perform this request; please logout with `vip logout`, then try again.';
 			if ( 'result' in networkError && networkError.result?.code === 'token-disabled-inactivity' ) {
 				message =
-					'The configured VIP-CLI token has been disabled due to inactivity, please logout with `vip logout` then try again.';
+					'Your token has been disabled due to inactivity; please log out with `vip logout`, then try again.';
 			}
 			console.error( chalk.red( 'Unauthorized:' ), message );
 			process.exit( 1 );
