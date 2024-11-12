@@ -165,7 +165,7 @@ export function validateInputs( limit: number, format: SlowlogFormats ): void {
 
 	if ( ! Number.isInteger( limit ) || limit < LIMIT_MIN || limit > slowlogsLib.LIMIT_MAX ) {
 		exit.withError(
-			`Invalid limit: ${ limit }. It should be a number between ${ LIMIT_MIN } and ${ slowlogsLib.LIMIT_MAX }.`
+			`Invalid limit: ${ limit }. Set the limit to an integer between ${ LIMIT_MIN } and ${ slowlogsLib.LIMIT_MAX }.`
 		);
 	}
 }
@@ -193,8 +193,8 @@ void command( {
 	module: 'slowlogs',
 	usage: baseUsage,
 } )
-	.option( 'limit', 'The maximum number of log entries', 500 )
-	.option( 'format', 'Output the log entries in CSV or JSON format', 'table' )
+	.option( 'limit', 'Set the maximum number of log entries.', 500 )
+	.option( 'format', 'Output the log entries in CSV or JSON format.', 'table' )
 	.examples( [
 		{
 			description:
