@@ -193,7 +193,11 @@ void command( {
 	module: 'slowlogs',
 	usage: baseUsage,
 } )
-	.option( 'limit', 'Set the maximum number of log entries.', 500 )
+	.option(
+		'limit',
+		'Set the maximum number of log entries. Accepts an integer value between 1 and 5000.',
+		500
+	)
 	.option( 'format', 'Output the log entries in CSV or JSON format.', 'table' )
 	.examples( [
 		{

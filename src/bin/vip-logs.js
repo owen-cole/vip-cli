@@ -207,7 +207,7 @@ command( {
 	)
 	.option(
 		'limit',
-		'Set a maximum number of entries to retrieve. Accepts an integer value greater than 0.',
+		'Set a maximum number of entries to retrieve. Accepts an integer value between 1 and 5000.',
 		500
 	)
 	.option( 'follow', 'Output new entries as they are generated.' )
