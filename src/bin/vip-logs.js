@@ -175,7 +175,7 @@ export function validateInputs( type, limit, format ) {
 
 	if ( ! Number.isInteger( limit ) || limit < LIMIT_MIN || limit > logsLib.LIMIT_MAX ) {
 		exit.withError(
-			`Invalid limit: ${ limit }. It should be a number between ${ LIMIT_MIN } and ${ logsLib.LIMIT_MAX }.`
+			`Invalid limit: ${ limit }. Set the limit to an integer between ${ LIMIT_MIN } and ${ logsLib.LIMIT_MAX }.`
 		);
 	}
 }
