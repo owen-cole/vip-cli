@@ -11,6 +11,7 @@ import { trackEvent } from '../lib/tracker';
 
 const LIMIT_MIN = 1;
 const LIMIT_MAX = 5000;
+const LIMIT_DEFAULT = 500;
 const ALLOWED_TYPES = [ 'app', 'batch' ];
 const ALLOWED_FORMATS = [ 'csv', 'json', 'table' ];
 const DEFAULT_POLLING_DELAY_IN_SECONDS = 30;
@@ -161,6 +162,10 @@ function printLogs( logs, format ) {
  * @param {string} format
  */
 export function validateInputs( type, limit, format ) {
+	if ( limit === undefined ) {
+		limit = LIMIT_DEFAULT;
+	}
+
 	if ( ! ALLOWED_TYPES.includes( type ) ) {
 		exit.withError(
 			`Invalid type: ${ type }. The supported types are: ${ ALLOWED_TYPES.join( ', ' ) }.`
@@ -206,9 +211,10 @@ command( {
 		'Specify the type of Runtime Logs to retrieve. Accepts "batch" (only valid for WordPress environments) or "app" (default).',
 		'app'
 	)
+  // The default limit is set manually in the `validateInputs()` function to address validation issues, avoiding incorrect replacement of the default value.
 	.option(
 		'limit',
-		'Set a maximum number of entries to retrieve. Accepts an integer value between 1 and 5000.',
+		`Set a maximum number of entries to retrieve. Accepts an integer value between 1 and 5000 (defaults to ${ LIMIT_DEFAULT }).`,
 		500
 	)
 	.option( 'follow', 'Output new entries as they are generated.' )
