@@ -203,7 +203,8 @@ command( {
 } )
 	.option(
 		'type',
-		'Specify the type of Runtime Logs to retrieve. Accepts "batch" (only valid for WordPress environments) or "app" (default).'
+		'Specify the type of Runtime Logs to retrieve. Accepts "batch" (only valid for WordPress environments) or "app" (default).',
+		'app'
 	)
 	.option(
 		'limit',
