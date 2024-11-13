@@ -11,6 +11,7 @@ import { trackEvent } from '../lib/tracker';
 
 const LIMIT_MIN = 1;
 const LIMIT_MAX = 5000;
+const LIMIT_DEFAULT = 500;
 const ALLOWED_TYPES = [ 'app', 'batch' ];
 const ALLOWED_FORMATS = [ 'csv', 'json', 'table' ];
 const DEFAULT_POLLING_DELAY_IN_SECONDS = 30;
@@ -161,6 +162,10 @@ function printLogs( logs, format ) {
  * @param {string} format
  */
 export function validateInputs( type, limit, format ) {
+	if ( limit === undefined ) {
+		limit = LIMIT_DEFAULT;
+	}
+
 	if ( ! ALLOWED_TYPES.includes( type ) ) {
 		exit.withError(
 			`Invalid type: ${ type }. The supported types are: ${ ALLOWED_TYPES.join( ', ' ) }.`
@@ -202,7 +207,7 @@ command( {
 	module: 'logs',
 } )
 	.option( 'type', 'The type of logs to be returned: "app" or "batch"', 'app' )
-	.option( 'limit', 'The maximum number of log lines', 500 )
+	.option( 'limit', `The maximum number of log lines (defaults to ${ LIMIT_DEFAULT })` )
 	.option( 'follow', 'Keep fetching new logs as they are generated' )
 	.option( 'format', 'Output the log lines in CSV or JSON format', 'table' )
 	.examples( [
