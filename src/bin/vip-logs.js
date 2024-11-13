@@ -207,6 +207,7 @@ command( {
 	module: 'logs',
 } )
 	.option( 'type', 'The type of logs to be returned: "app" or "batch"', 'app' )
+	// The default limit is set manually in the validateInputs function to address validation issues, avoiding incorrect replacement of the default value.
 	.option( 'limit', `The maximum number of log lines (defaults to ${ LIMIT_DEFAULT })` )
 	.option( 'follow', 'Keep fetching new logs as they are generated' )
 	.option( 'format', 'Output the log lines in CSV or JSON format', 'table' )
