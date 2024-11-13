@@ -66,14 +66,12 @@ const bindStreamEvents = ( { subShellRl, commonTrackingParams, isSubShell, stdou
 	stdoutStream.on( 'error', err => {
 		commandRunning = false;
 
-		setImmediate( () => {
-			if ( criticalErrors.includes( err.code ) ) {
-				console.error( `Error: ${ err.message }` );
-			} else {
-				// TODO handle this better
-				debug( 'Error: ' + err.message );
-			}
-		} );
+		if ( criticalErrors.includes( err.code ) ) {
+			console.error( `Error: ${ err.message }` );
+		} else {
+			// TODO handle this better
+			debug( 'Error: ' + err.message );
+		}
 	} );
 
 	stdoutStream.on( 'end', async () => {
