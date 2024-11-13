@@ -211,7 +211,7 @@ command( {
 		'Specify the type of Runtime Logs to retrieve. Accepts "batch" (only valid for WordPress environments) or "app" (default).',
 		'app'
 	)
-  // The default limit is set manually in the `validateInputs()` function to address validation issues, avoiding incorrect replacement of the default value.
+	// The default limit is set manually in the `validateInputs()` function to address validation issues, avoiding incorrect replacement of the default value.
 	.option(
 		'limit',
 		`Set a maximum number of entries to retrieve. Accepts an integer value between 1 and 5000 (defaults to ${ LIMIT_DEFAULT }).`,
