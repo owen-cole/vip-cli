@@ -32,7 +32,7 @@
         "ini": "5.0.0",
         "js-yaml": "^4.1.0",
         "jwt-decode": "4.0.0",
-        "lando": "github:automattic/lando-cli.git#4d8465e",
+        "lando": "github:automattic/lando-cli.git#6ca2668",
         "node-fetch": "^2.6.1",
         "open": "^10.0.0",
         "proxy-from-env": "^1.1.0",
@@ -250,9 +250,9 @@
       }
     },
     "node_modules/@automattic/vip-go-preflight-checks": {
-      "version": "2.0.17",
-      "resolved": "https://registry.npmjs.org/@automattic/vip-go-preflight-checks/-/vip-go-preflight-checks-2.0.17.tgz",
-      "integrity": "sha512-ydpTIwg5cmckOADUwmPd55H2vbIEGmC10pmO7OmRWAIwgyb47E3owUX2xFHfs4Z7F8PpDnt/5S9B5Z0x2bPAxQ==",
+      "version": "2.0.18",
+      "resolved": "https://registry.npmjs.org/@automattic/vip-go-preflight-checks/-/vip-go-preflight-checks-2.0.18.tgz",
+      "integrity": "sha512-I7bAndhd0pvkCas8qHrpT3p81mJotjkLr0r2G215jtg6lI1OV6L7+Xnkns/LONqPZROjoPxfErbega6C5IUuzw==",
       "dependencies": {
         "chalk": "^4.1.2",
         "command-line-args": "^5.2.1",
@@ -13403,9 +13403,9 @@
       }
     },
     "@automattic/vip-go-preflight-checks": {
-      "version": "2.0.17",
-      "resolved": "https://registry.npmjs.org/@automattic/vip-go-preflight-checks/-/vip-go-preflight-checks-2.0.17.tgz",
-      "integrity": "sha512-ydpTIwg5cmckOADUwmPd55H2vbIEGmC10pmO7OmRWAIwgyb47E3owUX2xFHfs4Z7F8PpDnt/5S9B5Z0x2bPAxQ==",
+      "version": "2.0.18",
+      "resolved": "https://registry.npmjs.org/@automattic/vip-go-preflight-checks/-/vip-go-preflight-checks-2.0.18.tgz",
+      "integrity": "sha512-I7bAndhd0pvkCas8qHrpT3p81mJotjkLr0r2G215jtg6lI1OV6L7+Xnkns/LONqPZROjoPxfErbega6C5IUuzw==",
       "requires": {
         "chalk": "^4.1.2",
         "command-line-args": "^5.2.1",
@@ -20199,7 +20199,7 @@
     },
     "lando": {
       "version": "git+ssh://git@github.com/automattic/lando-cli.git#4d8465ece983ee6242528b54de6738f00804ca0d",
-      "from": "lando@github:automattic/lando-cli.git#4d8465e",
+      "from": "lando@github:automattic/lando-cli.git#6ca2668",
       "requires": {
         "@lando/compose": "1.0.0",
         "axios": "^1.7.2",
