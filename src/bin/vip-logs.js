@@ -232,11 +232,20 @@ command( {
 	envContext: true,
 	module: 'logs',
 } )
-	.option( 'type', 'The type of logs to be returned: "app" or "batch"', 'app' )
+	.option(
+		'type',
+		'Specify the type of Runtime Logs to retrieve. Accepts "batch" (only valid for WordPress environments) or "app" (default).'
+	)
 	// The default limit is set manually in the validateInputs function to address validation issues, avoiding incorrect replacement of the default value.
-	.option( 'limit', `The maximum number of log lines (defaults to ${ LIMIT_DEFAULT })` )
-	.option( 'follow', 'Keep fetching new logs as they are generated' )
-	.option( 'format', 'Output the log lines in CSV or JSON format', 'table' )
+	.option(
+		'limit',
+		`Set a maximum number of entries to retrieve. Accepts an integer value between 1 and 5000 (defaults to ${ LIMIT_DEFAULT }).`
+	)
+	.option( 'follow', 'Output new entries as they are generated.' )
+	.option(
+		'format',
+		'Render output in a particular format. Accepts “table” (default), “csv”, and “json”.'
+	)
 	.examples( [
 		{
 			usage: 'vip @example-app.production logs',
