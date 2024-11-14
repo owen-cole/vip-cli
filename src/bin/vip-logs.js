@@ -218,7 +218,10 @@ command( {
 		500
 	)
 	.option( 'follow', 'Output new entries as they are generated.' )
-	.option( 'format', 'Output entries in CSV or JSON format.', 'table' )
+	.option(
+		'format',
+		'Render output in a particular format. Accepts “table” (default), “csv”, and “json”.'
+	)
 	.examples( [
 		{
 			usage: 'vip @example-app.production logs',
