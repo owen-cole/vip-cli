@@ -8,7 +8,6 @@ import { setContext } from '@apollo/client/link/context';
 import { ApolloLink } from '@apollo/client/link/core';
 import { ErrorResponse, onError } from '@apollo/client/link/error';
 import { ServerError } from '@apollo/client/link/utils';
-
 import chalk from 'chalk';
 
 import http from './api/http';
