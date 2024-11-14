@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk';
+import CliTable3 from 'cli-table3';
 import { setTimeout } from 'timers/promises';
 
 import * as logsLib from '../lib/app-logs/app-logs';
@@ -144,11 +145,36 @@ function printLogs( logs, format ) {
 
 	let output = '';
 	if ( format && 'table' === format ) {
-		const rows = [];
-		for ( const { timestamp, message } of logs ) {
-			rows.push( `${ timestamp } ${ message }` );
-			output = rows.join( '\n' );
+		const options = {
+			wordWrap: true,
+			wrapOnWordBoundary: true,
+			head: [ 'Timestamp', 'Message' ],
+			style: {
+				head: [ 'cyan' ],
+				border: [ 'grey' ],
+			},
+		};
+
+		if ( process.stdout.isTTY && process.stdout.columns ) {
+			options.colWidths = [
+				'YYYY-MM-DDTHH:MM:SS.nnnnnnnnnZ'.length + 2 /* padding */,
+				Math.max(
+					process.stdout.columns - '│  │  │'.length - 'YYYY-MM-DDTHH:MM:SS.nnnnnnnnnZ'.length,
+					20
+				),
+			];
+		} else {
+			options.style.head = [];
+			options.style.border = [];
 		}
+
+		const table = new CliTable3( options );
+		for ( const { timestamp, message } of logs ) {
+			const msg = message.trimRight().replace( /\t/g, '    ' );
+			table.push( [ timestamp, msg ] );
+		}
+
+		output = table.toString();
 	} else {
 		output = formatData( logs, format );
 	}
