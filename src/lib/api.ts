@@ -6,7 +6,9 @@ import {
 } from '@apollo/client/core';
 import { setContext } from '@apollo/client/link/context';
 import { ApolloLink } from '@apollo/client/link/core';
-import { onError } from '@apollo/client/link/error';
+import { ErrorResponse, onError } from '@apollo/client/link/error';
+import { ServerError } from '@apollo/client/link/utils';
+
 import chalk from 'chalk';
 
 import http from './api/http';
@@ -30,6 +32,15 @@ export function enableGlobalGraphQLErrorHandling(): void {
 	globalGraphQLErrorHandlingEnabled = true;
 }
 
+function isServerError(
+	networkError: ErrorResponse[ 'networkError' ]
+): networkError is ServerError {
+	if ( ! networkError ) {
+		return false;
+	}
+	return 'result' in networkError;
+}
+
 export default function API( {
 	exitOnError = true,
 }: {
@@ -39,7 +50,10 @@ export default function API( {
 		if ( networkError && 'statusCode' in networkError && networkError.statusCode === 401 ) {
 			let message =
 				'You are not authorized to perform this request; please logout with `vip logout`, then try again.';
-			if ( 'result' in networkError && networkError.result?.code === 'token-disabled-inactivity' ) {
+			if (
+				isServerError( networkError ) &&
+				networkError.result?.code === 'token-disabled-inactivity'
+			) {
 				message =
 					'Your token has been disabled due to inactivity; please log out with `vip logout`, then try again.';
 			}
