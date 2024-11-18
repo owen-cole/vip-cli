@@ -1,8 +1,19 @@
 ## Changelog
 
+## 3.8.7
+
+* fix(dev-env): SQL sync for single sites
+
+**Full Changelog**: https://github.com/Automattic/vip-cli/compare/3.8.6...3.8.7
+
+## 3.8.6
+
+* Updating Node.js versions and standardize the format
+
+**Full Changelog**: https://github.com/Automattic/vip-cli/compare/3.8.5...3.8.6
+
 ## 3.8.5
 
-## What's Changed
 * build(deps-dev): bump the babel group with 4 updates
 * build(deps-dev): bump typescript from 5.6.2 to 5.6.3
 * Update the sync command to follow the VIP-CLI style guide
