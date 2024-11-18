@@ -252,8 +252,9 @@ export class DevEnvSyncSQLCommand {
 		}
 
 		const prologue = `
+DROP PROCEDURE IF EXISTS vip_sync_update_blog_domains;
 DELIMITER $$
-CREATE PROCEDURE update_blog_domains()
+CREATE PROCEDURE vip_sync_update_blog_domains()
 BEGIN
     IF EXISTS (SELECT * FROM information_schema.tables WHERE table_schema = 'wordpress' AND table_name = 'wp_blogs') THEN
 `;
@@ -261,7 +262,8 @@ BEGIN
     END IF;
 END$$
 DELIMITER ;
-CALL update_blog_domains();
+CALL vip_sync_update_blog_domains();
+DROP PROCEDURE vip_sync_update_blog_domains;
 `;
 
 		const queries: string[] = [];
