@@ -239,7 +239,7 @@ command( {
 	// The default limit is set manually in the validateInputs function to address validation issues, avoiding incorrect replacement of the default value.
 	.option(
 		'limit',
-		`Set a maximum number of entries to retrieve. Accepts an integer value between 1 and 5000 (defaults to ${ LIMIT_DEFAULT }).`
+		`The maximum number of entries to return. Accepts an integer value between 1 and 5000 (defaults to ${ LIMIT_DEFAULT }).`
 	)
 	.option( 'follow', 'Output new entries as they are generated.' )
 	.option(
