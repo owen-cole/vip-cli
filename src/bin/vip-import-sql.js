@@ -404,7 +404,7 @@ void command( {
 	)
 	.option(
 		'output',
-		'Clone the local input file and overwrite the clone with the results of the search and replace operation. Accepts a local file path. Overridden by --in-place if both options are run in the same command, and ignored if the command excludes a --search-replace operation.'
+		'The local file path to save a copy of the results from the search and replace operation when the --search-replace option is passed. Ignored when used with the --in-place option.'
 	)
 	.examples( examples )
 	.argv( process.argv, async ( arg, opts ) => {
