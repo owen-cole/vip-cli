@@ -44,7 +44,7 @@ command( {
 	)
 	.option(
 		'output',
-		'Clone the local input file and overwrite the clone with the results of the search and replace operation. Accepts a local file path. Overridden by --in-place if both options are run in the same command.'
+		'The local file path used to save a copy of the results from the search and replace operation. Ignored when used with the --in-place option.'
 	)
 	.examples( examples )
 	.argv( process.argv, async ( arg, opt ) => {
