@@ -244,7 +244,7 @@ command( {
 	.option( 'follow', 'Output new entries as they are generated.' )
 	.option(
 		'format',
-		'Render output in a particular format. Accepts “table” (default), “csv”, and “json”.'
+		'Render output in a particular format. Accepts "table" (default), "csv", and "json".'
 	)
 	.examples( [
 		{
