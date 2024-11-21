@@ -234,7 +234,8 @@ command( {
 } )
 	.option(
 		'type',
-		'Specify the type of Runtime Logs to retrieve. Accepts "batch" (only valid for WordPress environments) or "app" (default).'
+		'Specify the type of Runtime Logs to retrieve. Accepts "batch" (only valid for WordPress environments).',
+		'app'
 	)
 	// The default limit is set manually in the validateInputs function to address validation issues, avoiding incorrect replacement of the default value.
 	.option(
@@ -242,10 +243,7 @@ command( {
 		`The maximum number of entries to return. Accepts an integer value between 1 and 5000 (defaults to ${ LIMIT_DEFAULT }).`
 	)
 	.option( 'follow', 'Output new entries as they are generated.' )
-	.option(
-		'format',
-		'Render output in a particular format. Accepts "table" (default), "csv", and "json".'
-	)
+	.option( 'format', 'Render output in a particular format. Accepts “csv”, and “json”.', 'table' )
 	.examples( [
 		{
 			usage: 'vip @example-app.production logs',
