@@ -23,6 +23,10 @@ const MAX_POLLING_DELAY_IN_SECONDS = 300;
  * @param {string[]} arg
  */
 export async function getLogs( arg, opt ) {
+	opt.type ??= 'app';
+	opt.limit ??= LIMIT_DEFAULT;
+	opt.format ??= 'table';
+
 	validateInputs( opt.type, opt.limit, opt.format );
 
 	const trackingParams = getBaseTrackingParams( opt );
@@ -188,10 +192,6 @@ function printLogs( logs, format ) {
  * @param {string} format
  */
 export function validateInputs( type, limit, format ) {
-	if ( limit === undefined ) {
-		limit = LIMIT_DEFAULT;
-	}
-
 	if ( ! ALLOWED_TYPES.includes( type ) ) {
 		exit.withError(
 			`Invalid type: ${ type }. The supported types are: ${ ALLOWED_TYPES.join( ', ' ) }.`

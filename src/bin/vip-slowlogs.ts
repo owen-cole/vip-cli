@@ -28,6 +28,7 @@ const exampleUsage = 'vip @example-app.develop slowlogs';
 const baseUsage = 'vip slowlogs';
 
 export async function getSlowlogs( arg: string[], opt: GetSlowLogsOptions ): Promise< void > {
+	opt.format ??= 'table';
 	validateInputs( opt.limit, opt.format );
 
 	const trackingParams = getBaseTrackingParams( opt );
