@@ -148,7 +148,7 @@ function printLogs( logs, format ) {
 	} );
 
 	let output = '';
-	if ( format && 'table' === format ) {
+	if ( 'table' === format ) {
 		const options = {
 			wordWrap: true,
 			wrapOnWordBoundary: true,
@@ -179,7 +179,7 @@ function printLogs( logs, format ) {
 		}
 
 		output = table.toString();
-	} else if ( format && 'text' === format ) {
+	} else if ( 'text' === format ) {
 		const rows = [];
 		for ( const { timestamp, message } of logs ) {
 			rows.push( `${ timestamp } ${ message }` );
